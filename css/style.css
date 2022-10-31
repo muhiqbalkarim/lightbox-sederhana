@@ -1,0 +1,275 @@
+/* Font */
+@font-face {
+
+    font-family: 'BebasNeue';
+    src: url(../fonts/bebasneue-bold-webfont.woff) format('woff');
+    src: url(../fonts/bebasneue-bold-webfont.woff2) format('woff2');
+    
+    font-family: 'Alex Brush';
+    src: url(../fonts/alexbrush-regular-webfont.woff) format('woff');
+    src: url(../fonts/alexbrush-regular-webfont.woff2) format('woff2');
+
+}
+
+/* Style Utama */
+body {
+
+    font: 18px/36px 'BebasNeue', sans-serif;
+    background-color: #ddd;
+}
+
+h1 {
+
+    font-size: 80px;
+    font-family: Alex Brush;
+    font-weight: bold;
+    margin: 50px 0;
+    text-align: center;
+    text-shadow: 1px 1px 1px white ;
+}
+
+.container {
+
+    width: 600px;
+    background-color: white;
+    margin: auto;
+    padding: 20px;
+    box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    box-sizing: border-box;
+
+}
+
+.gallery li {
+
+    width: 120px;
+    height: 120px;
+    /* overflow: hidden; */
+    border: 5px solid black;
+    float: left;
+    margin: 5px 5px;
+    position: relative;
+
+}
+
+.gallery li img,
+.gallery li span,
+.gallery li {
+
+    border-radius: 50%;
+
+}
+
+.gallery li span {
+
+    display: block;
+    width: 120px;
+    height: 120px;
+    background-color: rgba(200, 200, 200, 0.5);
+    position: absolute;
+    top: 0px;
+    text-align: center;
+    line-height: 120px;
+    color: darkturquoise;
+    text-shadow: 1px 1px 1px red;
+    opacity: 0;
+    transition: 500ms;
+    transform: scale(0) rotate(0);
+}
+
+.gallery li a:hover span {
+
+    opacity: 1;
+    transform: scale(1) rotate(360deg);
+
+}
+
+#spandua{
+
+    color: rgb(16, 211, 114);
+    text-shadow: 1px 1px 1px rgb(231, 228, 13);
+
+}
+
+#spantiga{
+
+    color: rgb(0, 0, 0);
+    text-shadow: 1px 1px 1px rgb(255, 255, 255);
+
+}
+
+#spanempat{
+
+    color: rgb(225, 0, 255);
+    text-shadow: 1px 1px 1px rgb(0, 0, 0);
+
+}
+
+
+.clear {
+
+    clear: both;
+
+}
+
+
+/* overlay */
+
+.overlay {
+
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    position: fixed;
+    text-align: center;
+    padding: 100px 0;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0);
+    z-index: 9999;
+
+}
+
+.overlay:target {
+
+    width: auto;
+    height: auto;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,.8);
+    transition: .8s;
+
+}
+
+.overlay img {
+
+    max-height: 100%;
+    box-shadow: 10px 10px 10px rgba(0,0,0,.7);
+
+
+}
+
+.overlay:target img {
+
+    animation: popupgambar 1s;
+
+}
+
+.overlay .close {
+
+    position: inherit;
+    top: 48px;
+    left: 50%;
+    margin-left: -36px;
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    width: 70px;
+    background-color: black;
+    border: 1px solid white;
+    opacity: 0;
+    
+}
+
+.overlay:target .close {
+
+    animation: slidedownfade .5s .5s cubic-bezier(0.48, 0.07, 0.55, 0.93) forwards;
+    
+}
+
+/* Navigasi */
+
+.gallery .next,
+.gallery .prev {
+
+    width: 57px;
+    height: 93px;
+    background-image: url(../img/navigasi/next.png);
+    position: absolute;
+    text-indent: -9999px;
+    top: 45%;
+    margin-left: 40px;
+    opacity: 0;
+    
+}
+
+.overlay:target .next,
+.overlay:target .prev{
+
+    animation: fade .5s .5s forwards;
+
+}
+
+.gallery .prev {
+
+    background-image: url(../img/navigasi/prev.png);
+    margin-left: -97px;
+
+}
+
+
+/* Animasi */
+
+@keyframes fade {
+
+    0% {
+
+        opacity: 0;
+
+    }
+
+    100% {
+
+        opacity: 1;
+
+    }
+
+
+}
+
+@keyframes popupgambar {
+    0% {
+
+        transform: scale(0);
+        opacity: 0;
+
+    }
+
+    100% {
+
+        transform: scale(1);
+        opacity: 1;
+
+    }
+}
+
+@keyframes slidedownfade {
+
+    0% {
+
+        opacity: 0;
+        margin-top: -20px;
+
+    }
+
+    50% {
+
+        opacity: 1;
+        margin-top: 0;
+        width: 70px;
+        left: 50%;
+        margin-left: -36px;
+
+    }
+ 
+    100% {
+
+        opacity: 1;
+        margin-top: 0;
+        width: 599px;
+        left: 50%;
+        margin-left: -300px;
+        text-align: center;
+        
+    }
+}
